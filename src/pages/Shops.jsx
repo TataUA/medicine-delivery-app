@@ -9,13 +9,12 @@ import {
   Title,
   ShopsList,
   MedicineList,
-  } from "./Shops.styled";
+} from "./Shops.styled";
 
 const Shops = () => {
   const [shops, setShops] = useState([]);
   const [currentShop, setCurrentShop] = useState(null);
   const [products, setProducts] = useState([]);
-  const [firstRender, setFirstRender] = useState(true);  
 
   async function getShops() {
     try {
@@ -48,16 +47,16 @@ const Shops = () => {
   }
 
   useEffect(() => {
-    if (firstRender) {
-      setFirstRender(false);
-      fetchData();
-      if (currentShop) {
-        getProducts(currentShop);
-      }
-      return;
+    fetchData();
+    if (currentShop) {
+      getProducts(currentShop);
     }
+    return;
+  }, []);
+
+  useEffect(() => {
     getProducts(currentShop);
-  }, [firstRender, currentShop]);
+  }, [currentShop]);
 
   return (
     <div>
