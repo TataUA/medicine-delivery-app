@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import axios from "../utils/axios";
 import { Loader } from "components/Loader/Loader";
 import { ProductItem } from "components/ProductItem/ProductItem";
@@ -26,7 +26,7 @@ const Shops = () => {
     }
   }
 
-  async function fetchData() {
+  const fetchData = useCallback(async () => {
     try {
       const shopsList = await getShops();
       setShops(shopsList);
@@ -34,7 +34,7 @@ const Shops = () => {
     } catch (error) {
       throw new Error("Something went wrong");
     }
-  }
+  }, []);
 
   async function getProducts(ownerId) {
     try {
@@ -48,14 +48,12 @@ const Shops = () => {
 
   useEffect(() => {
     fetchData();
+  }, [fetchData]);
+
+  useEffect(() => {
     if (currentShop) {
       getProducts(currentShop);
     }
-    return;
-  }, []);
-
-  useEffect(() => {
-    getProducts(currentShop);
   }, [currentShop]);
 
   return (
