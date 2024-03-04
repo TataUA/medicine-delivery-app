@@ -6,8 +6,7 @@ export const Container = styled.div`
   height: 100vh;
   margin: 0 auto;
   padding: 0 30px 30px 30px;
-  //background-color: var(--white);
-  background-color: lightpink;
+  background-color: var(--white);
   color: var(--text);
 `;
 

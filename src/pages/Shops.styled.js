@@ -24,17 +24,31 @@ export const ShopsList = styled.ul`
   height: 500px;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  //gap: 15px;
   overflow-y: auto;
 
   > li {
     width: 200px;
-    padding: 8px 16px;
-    text-align: center;
-    border: 3px solid var(--border);
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 20px;
+    margin-top: 20px;
+
+    > button {
+      width: 100%;
+      padding: 8px 16px;
+      text-align: center;
+      border: 3px solid var(--border);
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 20px;
+
+      &:hover {
+        transform: scale(1.1);
+        transition: var(--transition);
+      }
+
+      &.active {
+        background-color: var(--gray);
+      }
+    }
   }
 `;
 
@@ -51,35 +65,4 @@ export const MedicineList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
-`;
-
-export const MedicineItem = styled.li`
-  padding: 15px;
-  border: 3px solid var(--border);
-  border-radius: 8px;
-
-  > img {
-    margin-bottom: 12px;
-    border-radius: 8px;
-  }
-
-  > h2 {
-    margin-bottom: 8px;
-    font-weight: 600;
-    font-size: 20px;
-  }
-
-  > button {
-    display: block;
-    margin-left: auto;
-    padding: 8px;
-    border: 3px solid var(--border);
-    border-radius: 8px;
-    background-color: var(--gray);
-
-    &:hover, :focus{
-        transform: scale(1.1);
-        transition: var(--transition);
-    }
-  }
 `;
