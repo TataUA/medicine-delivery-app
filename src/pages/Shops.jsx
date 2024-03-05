@@ -58,7 +58,6 @@ const Shops = () => {
 
   return (
     <div>
-      {shops.length === 0 && <Loader />}
       <ContentWrapper>
         <ShopsWrapper>
           <Title>Shops:</Title>
@@ -82,6 +81,7 @@ const Shops = () => {
           </ShopsList>
         </ShopsWrapper>
         <MedicineWrapper>
+          {shops.length === 0 && <Loader />}
           <MedicineList>
             {products.length > 0 &&
               products.map((product) => (
