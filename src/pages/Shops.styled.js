@@ -24,7 +24,6 @@ export const ShopsList = styled.ul`
   height: 500px;
   flex-direction: column;
   align-items: center;
-  //gap: 15px;
   overflow-y: auto;
 
   > li {

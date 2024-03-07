@@ -49,14 +49,16 @@ export const ProductBasketItem = ({ product }) => {
         <p>Price: {price} ₴</p>
         <InputWrapper>
           <input value={quantity} readOnly></input>
-          <ButtonUp onClick={() => handleIncreaseQuantity(_id)}>
+          <ButtonUp type="button" onClick={() => handleIncreaseQuantity(_id)}>
             &#x1F781;
           </ButtonUp>
-          <ButtonDown onClick={() => handleDecreaseQuantity(_id)}>
+          <ButtonDown type="button" onClick={() => handleDecreaseQuantity(_id)}>
             &#x1F783;
           </ButtonDown>
         </InputWrapper>
-        <ButtonClose onClick={() => handleRemoveProduct(_id)}>X</ButtonClose>
+        <ButtonClose type="button" onClick={() => handleRemoveProduct(_id)}>
+          X
+        </ButtonClose>
       </div>
     </BasketItem>
   );
